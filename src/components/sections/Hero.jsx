@@ -4,13 +4,21 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Download, Terminal, ChevronRight } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Magnetic from '@/components/ui/Magnetic';
+import { useV4 } from '@/context/V4Context';
 
 const Hero = () => {
+  const { isV4Active } = useV4();
   const [terminalStep, setTerminalStep] = useState(0);
   const controls = useAnimation();
+  
+  // If V4 is active, wait for the Signature Transformation to finish (9.4s) plus its fade out (1s).
+  const baseDelay = isV4Active ? 9.8 : 0;
 
   useEffect(() => {
     const sequence = async () => {
+      if (isV4Active) {
+        await new Promise(r => setTimeout(r, 9800));
+      }
       await new Promise(r => setTimeout(r, 1000));
       await new Promise(r => setTimeout(r, 1000));
       setTerminalStep(1); // line 1
@@ -46,7 +54,7 @@ const Hero = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: baseDelay, ease: "easeOut" }}
               className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md cursor-hover"
             >
               <span className="relative flex h-2 w-2">
@@ -61,7 +69,7 @@ const Hero = () => {
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: baseDelay + 0.1, ease: "easeOut" }}
               className="text-zinc-400 font-mono tracking-widest text-sm mb-4"
             >
               VISHAL JHA
@@ -77,7 +85,7 @@ const Hero = () => {
                   <motion.h1
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
+                    transition={{ duration: 0.8, delay: baseDelay + 0.2 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
                     className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] pb-2"
                   >
                     {line}
@@ -89,7 +97,7 @@ const Hero = () => {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: baseDelay + 0.3, ease: "easeOut" }}
               className="text-lg text-zinc-400 max-w-xl mb-4 leading-relaxed"
             >
               Pre-Final-Year Computer Science Engineering student specializing in Full-Stack Development.
@@ -98,7 +106,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: baseDelay + 0.4, ease: "easeOut" }}
               className="font-mono text-sm text-zinc-500 mb-10"
             >
               React • Node.js • TypeScript • MongoDB • MySQL
@@ -107,7 +115,7 @@ const Hero = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: baseDelay + 0.5, ease: "easeOut" }}
               className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
               <Magnetic>
@@ -141,7 +149,7 @@ const Hero = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
             animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: baseDelay + 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="relative lg:ml-auto w-full max-w-[550px] perspective-1000"
           >
             <motion.div 

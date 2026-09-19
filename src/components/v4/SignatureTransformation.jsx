@@ -43,15 +43,18 @@ const SignatureTransformation = () => {
     return () => clearTimeout(timeout);
   }, [isV4Active]);
 
-  if (!isV4Active || isComplete) return null;
+  if (!isV4Active) return null;
 
   const step = sequenceSteps[currentStep];
 
   return (
+    <AnimatePresence>
+      {!isComplete && (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+      transition={{ duration: 1, ease: 'easeInOut' }}
       className="fixed inset-0 z-[200] bg-black flex items-center justify-center overflow-hidden"
     >
       {/* Background Grid */}
@@ -106,6 +109,8 @@ const SignatureTransformation = () => {
         ></motion.div>
       </div>
     </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

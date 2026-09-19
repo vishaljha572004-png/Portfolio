@@ -30,7 +30,7 @@ const Contact = () => {
               className="rounded-full bg-white text-black hover:bg-zinc-200 h-12 px-8 cursor-hover group"
               asChild
             >
-              <a href="https://github.com/vishaljha" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/vishaljha572004-png" target="_blank" rel="noopener noreferrer">
                 <FaGithub className="mr-2 w-4 h-4" />
                 View GitHub Profile
                 <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

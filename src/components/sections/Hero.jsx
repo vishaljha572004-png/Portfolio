@@ -11,21 +11,22 @@ const Hero = () => {
   useEffect(() => {
     const sequence = async () => {
       await new Promise(r => setTimeout(r, 1000));
-      setTerminalStep(1); // whoami
+      await new Promise(r => setTimeout(r, 1000));
+      setTerminalStep(1); // line 1
+      await new Promise(r => setTimeout(r, 400));
+      setTerminalStep(2); // line 2
+      await new Promise(r => setTimeout(r, 600));
+      setTerminalStep(3); // line 3
       await new Promise(r => setTimeout(r, 800));
-      setTerminalStep(2); // Vishal Jha
-      await new Promise(r => setTimeout(r, 1500));
-      setTerminalStep(3); // role
+      setTerminalStep(4); // line 4
+      await new Promise(r => setTimeout(r, 400));
+      setTerminalStep(5); // line 5
+      await new Promise(r => setTimeout(r, 600));
+      setTerminalStep(6); // line 6
       await new Promise(r => setTimeout(r, 800));
-      setTerminalStep(4); // Full-Stack Developer
-      await new Promise(r => setTimeout(r, 1500));
-      setTerminalStep(5); // stack
-      await new Promise(r => setTimeout(r, 800));
-      setTerminalStep(6); // Stack details
-      await new Promise(r => setTimeout(r, 1500));
-      setTerminalStep(7); // status
-      await new Promise(r => setTimeout(r, 800));
-      setTerminalStep(8); // Building...
+      setTerminalStep(7); // line 7
+      await new Promise(r => setTimeout(r, 400));
+      setTerminalStep(8); // line 8
     };
     sequence();
   }, []);
@@ -123,101 +124,146 @@ const Hero = () => {
 
           </div>
 
-          {/* Right Content - Terminal */}
+          {/* Right Content - VS Code Editor */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
             animate={{ opacity: 1, scale: 1, rotateX: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:ml-auto w-full max-w-[500px] perspective-1000"
+            className="relative lg:ml-auto w-full max-w-[550px] perspective-1000"
           >
-            {/* Terminal Container with Hover Depth */}
             <motion.div 
-              whileHover={{ scale: 1.02, rotateY: -5, rotateX: 5 }}
+              whileHover={{ scale: 1.02, rotateY: -2, rotateX: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="rounded-xl overflow-hidden border border-white/10 bg-[#0c0c0c] shadow-2xl relative group cursor-hover"
+              className="rounded-xl overflow-hidden border border-[#2d2d2d] bg-[#1e1e1e] shadow-2xl relative group cursor-hover"
             >
-              {/* Terminal Header */}
-              <div className="flex items-center px-4 py-3 border-b border-white/5 bg-white/[0.02]">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              {/* VS Code Header */}
+              <div className="flex flex-col bg-[#252526] border-b border-[#2d2d2d]">
+                <div className="flex items-center px-4 py-2 border-b border-[#1e1e1e]">
+                  <div className="flex space-x-2 mr-4">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                  </div>
+                  <div className="text-xs text-[#cccccc] font-medium flex-1 text-center pr-12">
+                    Vishal_Jha_Portfolio - Visual Studio Code
+                  </div>
                 </div>
-                <div className="mx-auto flex items-center text-xs text-zinc-500 font-mono">
-                  <Terminal className="w-3 h-3 mr-2" />
-                  vishal@portfolio ~
+                {/* Tabs */}
+                <div className="flex overflow-x-auto no-scrollbar">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[#1e1e1e] border-t-2 border-[#007acc] min-w-max cursor-pointer">
+                    <span className="text-[#519aba] text-sm">⚛</span>
+                    <span className="text-[#cccccc] text-xs font-mono">Developer.tsx</span>
+                    <span className="text-[#858585] text-xs ml-2 hover:text-[#cccccc] hover:bg-white/10 rounded p-[1px]">✕</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[#2d2d2d] text-[#858585] min-w-max cursor-pointer hover:bg-[#1e1e1e] transition-colors">
+                    <span className="text-[#cb3837] text-sm">{}</span>
+                    <span className="text-xs font-mono">package.json</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Terminal Body */}
-              <div className="p-6 font-mono text-sm h-[320px] overflow-hidden flex flex-col gap-4">
+              {/* Editor Body */}
+              <div className="p-4 font-mono text-[13px] md:text-sm h-[340px] overflow-hidden flex bg-[#1e1e1e]">
                 
-                {/* Command 1 */}
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center text-zinc-400">
-                    <ChevronRight className="w-4 h-4 text-emerald-400 mr-1 shrink-0" />
-                    <span>whoami</span>
-                    {terminalStep === 0 && <span className="w-2 h-4 bg-white/70 ml-1 animate-pulse"></span>}
-                  </div>
-                  {terminalStep >= 2 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-white pl-5">
-                      Vishal Jha
-                    </motion.div>
-                  )}
+                {/* Line Numbers */}
+                <div className="flex flex-col text-[#858585] text-right pr-4 select-none border-r border-[#404040]">
+                  {[...Array(12)].map((_, i) => (
+                    <span key={i} className="leading-6">{i + 1}</span>
+                  ))}
                 </div>
 
-                {/* Command 2 */}
-                {terminalStep >= 2 && (
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center text-zinc-400">
-                      <ChevronRight className="w-4 h-4 text-emerald-400 mr-1 shrink-0" />
-                      <span>role</span>
-                      {terminalStep === 2 && <span className="w-2 h-4 bg-white/70 ml-1 animate-pulse"></span>}
-                    </div>
-                    {terminalStep >= 4 && (
-                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-white pl-5">
-                        Full-Stack Developer
-                      </motion.div>
-                    )}
+                {/* Code Content */}
+                <div className="pl-4 flex-1 text-[#d4d4d4] overflow-hidden">
+                  
+                  {/* Line 1 */}
+                  <div className="flex items-center leading-6 whitespace-nowrap">
+                    <span className="text-[#569cd6]">import</span>
+                    <span className="text-[#d4d4d4] ml-2">{`{ useState, useEffect }`}</span>
+                    <span className="text-[#569cd6] ml-2">from</span>
+                    <span className="text-[#ce9178] ml-2">'react'</span><span className="text-[#d4d4d4]">;</span>
+                    {terminalStep === 0 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
                   </div>
-                )}
 
-                {/* Command 3 */}
-                {terminalStep >= 4 && (
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center text-zinc-400">
-                      <ChevronRight className="w-4 h-4 text-emerald-400 mr-1 shrink-0" />
-                      <span>stack</span>
-                      {terminalStep === 4 && <span className="w-2 h-4 bg-white/70 ml-1 animate-pulse"></span>}
-                    </div>
-                    {terminalStep >= 6 && (
-                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-white pl-5 flex gap-2 flex-wrap">
-                        <span className="text-blue-400">React</span>
-                        <span className="text-green-400">Node</span>
-                        <span className="text-blue-500">TypeScript</span>
-                        <span className="text-green-500">MongoDB</span>
-                        <span className="text-orange-400">MySQL</span>
-                      </motion.div>
-                    )}
-                  </div>
-                )}
+                  {/* Line 2 */}
+                  {terminalStep >= 1 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 mt-6 whitespace-nowrap">
+                      <span className="text-[#569cd6]">const</span>
+                      <span className="text-[#4fc1ff] ml-2">DeveloperProfile</span>
+                      <span className="text-[#d4d4d4] ml-2">=</span>
+                      <span className="text-[#569cd6] ml-2">()</span>
+                      <span className="text-[#569cd6] ml-2">{`=>`}</span>
+                      <span className="text-[#d4d4d4] ml-2">{`{`}</span>
+                      {terminalStep === 1 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
 
-                {/* Command 4 */}
-                {terminalStep >= 6 && (
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center text-zinc-400">
-                      <ChevronRight className="w-4 h-4 text-emerald-400 mr-1 shrink-0" />
-                      <span>status</span>
-                      {terminalStep === 6 && <span className="w-2 h-4 bg-white/70 ml-1 animate-pulse"></span>}
-                    </div>
-                    {terminalStep >= 8 && (
-                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-emerald-400 pl-5 flex items-center">
-                        Building... <span className="w-2 h-4 bg-emerald-400 ml-2 animate-pulse"></span>
-                      </motion.div>
-                    )}
-                  </div>
-                )}
-                
+                  {/* Line 3 */}
+                  {terminalStep >= 2 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-4 whitespace-nowrap">
+                      <span className="text-[#569cd6]">const</span>
+                      <span className="text-[#9cdcfe] ml-2">profile</span>
+                      <span className="text-[#d4d4d4] ml-2">=</span>
+                      <span className="text-[#d4d4d4] ml-2">{`{`}</span>
+                      {terminalStep === 2 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+
+                  {/* Line 4 */}
+                  {terminalStep >= 3 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-8 whitespace-nowrap">
+                      <span className="text-[#9cdcfe]">name:</span>
+                      <span className="text-[#ce9178] ml-2">'Vishal Jha'</span><span className="text-[#d4d4d4]">,</span>
+                      {terminalStep === 3 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+
+                  {/* Line 5 */}
+                  {terminalStep >= 4 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-8 whitespace-nowrap">
+                      <span className="text-[#9cdcfe]">role:</span>
+                      <span className="text-[#ce9178] ml-2">'Full-Stack Developer'</span><span className="text-[#d4d4d4]">,</span>
+                      {terminalStep === 4 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+
+                  {/* Line 6 */}
+                  {terminalStep >= 5 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-8 whitespace-nowrap">
+                      <span className="text-[#9cdcfe]">skills:</span>
+                      <span className="text-[#d4d4d4] ml-2">[</span><span className="text-[#ce9178]">'React'</span><span className="text-[#d4d4d4]">,</span>
+                      <span className="text-[#ce9178] ml-2">'Node.js'</span><span className="text-[#d4d4d4]">,</span>
+                      <span className="text-[#ce9178] ml-2">'MongoDB'</span><span className="text-[#d4d4d4]">],</span>
+                      {terminalStep === 5 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+
+                  {/* Line 7 */}
+                  {terminalStep >= 6 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-4 whitespace-nowrap">
+                      <span className="text-[#d4d4d4]">{`};`}</span>
+                      {terminalStep === 6 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+                  
+                  {/* Line 8 */}
+                  {terminalStep >= 7 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 pl-4 mt-6 whitespace-nowrap">
+                      <span className="text-[#c586c0]">return</span>
+                      <span className="text-[#d4d4d4] ml-2">{`<`}</span><span className="text-[#4ec9b0]">Portfolio</span>
+                      <span className="text-[#9cdcfe] ml-2">data</span><span className="text-[#d4d4d4]">={"{"}</span><span className="text-[#9cdcfe]">profile</span><span className="text-[#d4d4d4]">{"}"} /{">"}</span>
+                      {terminalStep === 7 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+                  
+                  {/* Line 9 */}
+                  {terminalStep >= 8 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center leading-6 whitespace-nowrap">
+                      <span className="text-[#d4d4d4]">{`};`}</span>
+                      {terminalStep >= 8 && <span className="w-[8px] h-[16px] bg-[#d4d4d4] ml-1 animate-pulse"></span>}
+                    </motion.div>
+                  )}
+                  
+                </div>
               </div>
               
               {/* Subtle hover glow on the terminal itself */}

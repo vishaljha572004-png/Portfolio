@@ -60,7 +60,7 @@ const Skills = () => {
             const isHovered = hoveredSkill === skill.id;
             
             return (
-              <div key={skill.id} className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div key={skill.id} className={`absolute inset-0 flex items-center justify-center pointer-events-none ${isHovered ? 'z-50' : 'z-10'}`}>
                 
                 {/* Connecting Line */}
                 <svg className="absolute inset-0 w-full h-full -z-10 overflow-visible pointer-events-none">

@@ -26,8 +26,8 @@ export const projects = [
     },
     challenges: "Designing a relational database schema that efficiently handles multi-tenancy without compromising query performance or data isolation.",
     learnings: "Mastered advanced SQL joins, indexing strategies, and implementing robust role-based middleware for API protection.",
-    github: "https://github.com/vishaljha/pg-sphere",
-    live: "https://pg-sphere.demo"
+    github: "https://github.com/vishaljha572004-png/pg-management-system",
+    live: "https://pg-management-system-84bq.vercel.app"
   },
   {
     id: "v-mart",
@@ -56,7 +56,7 @@ export const projects = [
     },
     challenges: "Managing state synchronization between the cart and checkout process while ensuring real-time stock validation.",
     learnings: "Deepened understanding of hybrid database architectures and implementing secure payment processing flows.",
-    github: "https://github.com/vishaljha/v-mart",
+    github: "https://github.com/vishaljha572004-png/V-mart",
     live: "https://v-mart.demo"
   },
   {
@@ -86,7 +86,7 @@ export const projects = [
     },
     challenges: "Integrating Web Speech API and processing AI responses in real-time without blocking the user interface.",
     learnings: "Gained experience in payment gateway integration (Razorpay), PDF parsing, and handling real-time audio streams in the browser.",
-    github: "https://github.com/vishaljha/talent-scope",
-    live: "https://talent-scope.demo"
+    github: "https://github.com/vishaljha572004-png/TalentScope",
+    live: "https://talentscope-client.onrender.com"
   }
 ];

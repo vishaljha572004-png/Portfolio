@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Database, Server, Shield, Smartphone, Globe, Code2, X } from 'lucide-react';
+import useUISounds from '@/hooks/useUISounds';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
 
 const ProjectSection = ({ project, index, setSelectedProject }) => {
+  const { playClick, playHover } = useUISounds();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -50,7 +52,8 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
 
             <div className="flex flex-wrap items-center gap-4 mt-10">
               <Button 
-                onClick={() => setSelectedProject(project)}
+                onClick={() => { playClick(); setSelectedProject(project); }}
+                onMouseEnter={playHover}
                 className="rounded-full bg-white text-black hover:bg-zinc-200 h-12 px-8 cursor-hover transition-all"
               >
                 Case Study
@@ -64,6 +67,17 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
                   GitHub
                 </a>
               </Button>
+              {project.live && (
+                <Button 
+                  variant="outline"
+                  className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 h-12 px-8 cursor-hover"
+                  asChild
+                >
+                  <a href={project.live} target="_blank" rel="noopener noreferrer">
+                    Live Demo
+                  </a>
+                </Button>
+              )}
             </div>
           </motion.div>
 
@@ -94,10 +108,10 @@ const VMartVisualizer = () => {
     <motion.div 
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="w-full max-w-lg aspect-[4/3] rounded-xl border border-white/10 bg-[#0c0c0c] shadow-2xl relative overflow-hidden flex flex-col"
+      className="w-full max-w-lg aspect-[4/3] rounded-xl border border-white/10 bg-[#0c0c0c] shadow-2xl relative flex flex-col"
     >
       {/* Browser Bar */}
-      <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
+      <div className="h-10 bg-white/5 border-b border-white/5 rounded-t-xl flex items-center px-4 gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>

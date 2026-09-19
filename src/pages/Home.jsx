@@ -3,6 +3,7 @@ import About from '../components/sections/About';
 import Skills from '../components/sections/Skills';
 import Projects from '../components/sections/Projects';
 import HowIBuild from '../components/sections/HowIBuild';
+import GithubActivity from '../components/sections/GithubActivity';
 import Experience from '../components/sections/Experience';
 import ProblemSolving from '../components/sections/ProblemSolving';
 import Contact from '../components/sections/Contact';
@@ -14,6 +15,7 @@ const Home = () => {
       <About />
       <Skills />
       <Projects />
+      <GithubActivity />
       <HowIBuild />
       <Experience />
       <ProblemSolving />

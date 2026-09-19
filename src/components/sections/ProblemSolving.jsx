@@ -136,7 +136,7 @@ const ProblemSolving = () => {
             </div>
 
             <Button variant="outline" className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 h-12 px-8 cursor-hover" asChild>
-              <a href="https://github.com/vishaljha" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/vishaljha572004-png" target="_blank" rel="noopener noreferrer">
                 View GitHub Profile
               </a>
             </Button>

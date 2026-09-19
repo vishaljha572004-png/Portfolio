@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="flex flex-col md:items-end gap-6">
             <div className="flex items-center gap-6">
               <a 
-                href="https://github.com/vishaljha" 
+                href="https://github.com/vishaljha572004-png" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover flex items-center gap-2 text-sm font-medium"
@@ -31,7 +31,7 @@ const Footer = () => {
                 <span>GitHub</span>
               </a>
               <a 
-                href="https://linkedin.com/in/vishaljha" 
+                href="https://www.linkedin.com/in/vishaljha572004" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover flex items-center gap-2 text-sm font-medium"

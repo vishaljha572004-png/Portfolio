@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useNavigate } from 'react-router-dom';
+import useUISounds from '@/hooks/useUISounds';
+import { useTheme } from '@/hooks/useTheme';
 import { FaGithub } from 'react-icons/fa';
 
 const navLinks = [
   { name: 'About', href: '#about' },
-  { name: 'Work', href: '#projects' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Work', href: '#projects' },
   { name: 'Experience', href: '#experience' }
 ];
 
@@ -15,28 +18,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  // Theme logic
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'dark';
-    }
-    return 'dark';
-  });
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
+  const { playHover, playClick } = useUISounds();
+  const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,7 +91,8 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
+                    onMouseEnter={playHover}
+                    onClick={(e) => { playClick(); handleNavClick(e, link.href); }}
                     className="relative px-4 py-2 text-sm font-medium transition-colors cursor-hover text-zinc-400 hover:text-white"
                   >
                     {isActive && (
@@ -134,7 +119,7 @@ const Navbar = () => {
               </button>
               
               <a 
-                href="https://github.com/vishaljha" 
+                href="https://github.com/vishaljha572004-png" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover p-2"
@@ -145,11 +130,10 @@ const Navbar = () => {
               <Button 
                 variant="outline" 
                 className="rounded-full bg-transparent border-white/20 text-white hover:bg-white hover:text-black transition-all cursor-hover"
-                asChild
+                onMouseEnter={playHover}
+                onClick={() => { playClick(); navigate('/resume'); }}
               >
-                <a href="/resume.pdf" download="Vishal_Jha_Resume.pdf">
-                  Resume
-                </a>
+                Resume
               </Button>
             </div>
 
@@ -209,7 +193,7 @@ const Navbar = () => {
                   {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
                 </button>
                 <a 
-                  href="https://github.com/vishaljha" 
+                  href="https://github.com/vishaljha572004-png" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-white p-2"

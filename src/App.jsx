@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -14,9 +15,23 @@ import V4ApprovalPanel from '@/components/v4/V4ApprovalPanel';
 import DebugOverlay from '@/components/v4/DebugOverlay';
 import LivingCodeEnvironment from '@/components/v4/LivingCodeEnvironment';
 import SignatureTransformation from '@/components/v4/SignatureTransformation';
+import HackerTerminal from '@/components/easter-eggs/HackerTerminal';
+
 function App() {
   useKonamiCode();
   const location = useLocation();
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleGlobalKeydown = (e) => {
+      if (e.key === '`' || e.key === '~') {
+        e.preventDefault();
+        setIsTerminalOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeydown);
+    return () => window.removeEventListener('keydown', handleGlobalKeydown);
+  }, []);
   
   return (
     <V4Provider>
@@ -27,6 +42,11 @@ function App() {
       <LivingCodeEnvironment />
       <V4ApprovalPanel />
       <DebugOverlay />
+
+      <AnimatePresence>
+        {isTerminalOpen && <HackerTerminal onClose={() => setIsTerminalOpen(false)} />}
+      </AnimatePresence>
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Layout /></PageTransition>}>

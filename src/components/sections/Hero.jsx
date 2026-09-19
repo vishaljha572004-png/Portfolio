@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download, Terminal, ChevronRight } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Magnetic from '@/components/ui/Magnetic';
 
 const Hero = () => {
   const [terminalStep, setTerminalStep] = useState(0);
@@ -66,16 +67,24 @@ const Hero = () => {
               VISHAL JHA
             </motion.h2>
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8"
-            >
-              Building <span className="gradient-text-accent">digital products</span><br className="hidden md:block"/>
-              with code, curiosity<br className="hidden md:block"/>
-              and engineering.
-            </motion.h1>
+            <div className="mb-8 flex flex-col gap-1 md:gap-2">
+              {[
+                <span key="1">Building <span className="gradient-text-accent">digital products</span></span>,
+                <span key="2">with code, curiosity</span>,
+                <span key="3">and engineering.</span>
+              ].map((line, i) => (
+                <div key={i} className="overflow-hidden">
+                  <motion.h1
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
+                    className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] pb-2"
+                  >
+                    {line}
+                  </motion.h1>
+                </div>
+              ))}
+            </div>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -101,25 +110,29 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
               className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-sm font-semibold transition-all cursor-hover group"
-                onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-              >
-                View My Work
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="w-full sm:w-auto rounded-full px-8 h-12 text-sm font-medium border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all cursor-hover"
-                asChild
-              >
-                <a href="/resume.pdf" download="Vishal_Jha_Resume.pdf">
-                  Download Resume
-                  <Download className="ml-2 w-4 h-4" />
-                </a>
-              </Button>
+              <Magnetic>
+                <Button 
+                  size="lg" 
+                  className="w-full sm:w-auto bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-sm font-semibold transition-all cursor-hover group"
+                  onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  View My Work
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full sm:w-auto rounded-full px-8 h-12 text-sm font-medium border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all cursor-hover"
+                  asChild
+                >
+                  <a href="/resume.pdf" download="Vishal_Jha_Resume.pdf">
+                    Download Resume
+                    <Download className="ml-2 w-4 h-4" />
+                  </a>
+                </Button>
+              </Magnetic>
             </motion.div>
 
           </div>

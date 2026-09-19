@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import useUISounds from '@/hooks/useUISounds';
 import { useTheme } from '@/hooks/useTheme';
+import { useV4 } from '@/context/V4Context';
 import { FaGithub } from 'react-icons/fa';
 
 const navLinks = [
@@ -21,6 +22,7 @@ const Navbar = () => {
   const { playHover, playClick } = useUISounds();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const { isV4Active, startV4Preview } = useV4();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,6 +137,15 @@ const Navbar = () => {
               >
                 Resume
               </Button>
+              {!isV4Active && (
+                <Button 
+                  className="rounded-full bg-blue-600 text-white hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all cursor-hover font-mono text-xs font-bold tracking-wider"
+                  onMouseEnter={playHover}
+                  onClick={() => { playClick(); startV4Preview(); }}
+                >
+                  START V4
+                </Button>
+              )}
             </div>
 
             {/* Mobile Menu Toggle */}

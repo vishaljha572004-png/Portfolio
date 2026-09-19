@@ -4,6 +4,8 @@ import { ArrowUpRight, Database, Server, Shield, Smartphone, Globe, Code2, X } f
 import useUISounds from '@/hooks/useUISounds';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
+import ProjectEcosystem from '../v4/ProjectEcosystem';
+import { useV4 } from '@/context/V4Context';
 
 const ProjectSection = ({ project, index, setSelectedProject }) => {
   const { playClick, playHover } = useUISounds();
@@ -260,6 +262,7 @@ const TalentScopeVisualizer = () => {
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const { isV4Active } = useV4();
 
   // Disable scroll when modal is open
   useEffect(() => {
@@ -302,10 +305,18 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Case Study Full Screen Modal */}
+      {/* Case Study Full Screen Modal / Ecosystem */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
+          isV4Active ? (
+            <ProjectEcosystem 
+              key="v4-ecosystem"
+              project={selectedProject} 
+              onClose={() => setSelectedProject(null)} 
+            />
+          ) : (
+            <motion.div 
+              key="v3-modal"
             initial={{ opacity: 0, y: "100%" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100%" }}
@@ -425,6 +436,7 @@ const Projects = () => {
               </div>
             </div>
           </motion.div>
+          )
         )}
       </AnimatePresence>
     </section>

@@ -102,6 +102,14 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --animate-shine: shine 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  
+  @keyframes shine {
+    0% { left: -100%; opacity: 0; }
+    10% { opacity: 0.5; }
+    50% { left: 200%; opacity: 0.5; }
+    100% { left: 200%; opacity: 0; }
+  }
 }
 
 @layer base {

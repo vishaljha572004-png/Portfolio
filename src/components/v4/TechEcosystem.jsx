@@ -6,7 +6,7 @@ import { useV4 } from '@/context/V4Context';
 const skills = [
   { id: 'react', name: 'React.js', icon: Globe, desc: 'Frontend UI Library for building interactive user interfaces.', color: 'text-blue-400', projects: ['V Mart', 'PG Sphere', 'Talent Scope'] },
   { id: 'node', name: 'Node.js', icon: Server, desc: 'JavaScript runtime for scalable backend services.', color: 'text-green-400', projects: ['V Mart', 'PG Sphere', 'Talent Scope'] },
-  { id: 'ts', name: 'TypeScript', icon: Code2, desc: 'Strongly typed JavaScript for robust applications.', color: 'text-blue-500', projects: ['PG Sphere'] },
+  { id: 'js', name: 'JavaScript', icon: Code2, desc: 'Versatile language for frontend and backend logic.', color: 'text-yellow-400', projects: ['V Mart', 'PG Sphere', 'Talent Scope'] },
   { id: 'mongo', name: 'MongoDB', icon: Database, desc: 'NoSQL document database for flexible data storage.', color: 'text-emerald-500', projects: ['V Mart', 'Talent Scope'] },
   { id: 'mysql', name: 'MySQL', icon: Database, desc: 'Relational database for structured transactional data.', color: 'text-orange-400', projects: ['V Mart', 'PG Sphere'] },
   { id: 'express', name: 'Express.js', icon: Layout, desc: 'Minimalist web framework for Node.js APIs.', color: 'text-zinc-300', projects: ['V Mart', 'PG Sphere', 'Talent Scope'] },

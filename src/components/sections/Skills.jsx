@@ -5,7 +5,7 @@ import { Code2, Database, Layout, Server, Cpu, Globe, Boxes, Lock, Zap, GitBranc
 const skills = [
   { id: 'react', name: 'React.js', icon: Globe, desc: 'Frontend UI Library for building interactive user interfaces.', color: 'text-blue-400', bg: 'bg-blue-400/10' },
   { id: 'node', name: 'Node.js', icon: Server, desc: 'JavaScript runtime for scalable backend services.', color: 'text-green-400', bg: 'bg-green-400/10' },
-  { id: 'ts', name: 'TypeScript', icon: Code2, desc: 'Strongly typed JavaScript for robust applications.', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+  { id: 'js', name: 'JavaScript', icon: Code2, desc: 'Versatile language for frontend and backend logic.', color: 'text-yellow-400', bg: 'bg-yellow-400/10' },
   { id: 'mongo', name: 'MongoDB', icon: Database, desc: 'NoSQL document database for flexible data storage.', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
   { id: 'mysql', name: 'MySQL', icon: Database, desc: 'Relational database for structured transactional data.', color: 'text-orange-400', bg: 'bg-orange-400/10' },
   { id: 'express', name: 'Express.js', icon: Layout, desc: 'Minimalist web framework for Node.js APIs.', color: 'text-zinc-300', bg: 'bg-zinc-300/10' },

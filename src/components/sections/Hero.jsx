@@ -109,7 +109,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: baseDelay + 0.4, ease: "easeOut" }}
               className="font-mono text-sm text-zinc-500 mb-10"
             >
-              React • Node.js • TypeScript • MongoDB • MySQL
+              React • Node.js • JavaScript • MongoDB • MySQL
             </motion.div>
 
             <motion.div

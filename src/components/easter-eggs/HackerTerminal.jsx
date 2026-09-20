@@ -84,12 +84,11 @@ const HackerTerminal = ({ onClose }) => {
       onClick={() => inputRef.current?.focus()}
     >
       <div className="w-full max-w-4xl h-full max-h-[80vh] bg-[#0c0c0c] border border-green-500/30 rounded-lg shadow-[0_0_50px_rgba(34,197,94,0.1)] overflow-hidden flex flex-col font-mono relative">
-        
-        {/* Retro scanline effect */}
-        <div className="absolute inset-0 pointer-events-none bg-[url('https://transparenttextures.com/patterns/black-scales.png')] opacity-20 z-10"></div>
+
+
+        <div className="absolute inset-0 pointer-events-none bg-[url('https://transparenttextures.com/patterns/stardust.png')] opacity-10 z-10"></div>
         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] z-20"></div>
 
-        {/* Terminal Header */}
         <div className="bg-[#111] border-b border-green-500/30 px-4 py-2 flex items-center gap-2 relative z-30">
           <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
@@ -97,7 +96,7 @@ const HackerTerminal = ({ onClose }) => {
           <div className="ml-4 text-green-500 text-xs font-bold tracking-widest opacity-50">ROOT TERMINAL</div>
         </div>
 
-        {/* Terminal Body */}
+
         <div className="flex-1 overflow-y-auto p-6 text-green-500 text-sm md:text-base relative z-30">
           {history.map((line, i) => (
             <div key={i} className="mb-1 whitespace-pre-wrap">{line}</div>

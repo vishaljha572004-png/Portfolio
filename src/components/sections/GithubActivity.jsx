@@ -4,7 +4,7 @@ import { useTheme } from '@/hooks/useTheme';
 
 const GithubActivity = () => {
   const { theme } = useTheme();
-  
+
   return (
     <section className="py-20 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
@@ -23,15 +23,15 @@ const GithubActivity = () => {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="p-8 border border-white/10 rounded-2xl bg-zinc-900/50 flex justify-center overflow-x-auto overflow-y-hidden"
         >
           <div className="min-w-[800px]">
-            <GitHubCalendar 
-              username="vishaljha572004-png" 
+            <GitHubCalendar
+              username="vishaljha572004-png"
               colorScheme={theme === 'dark' ? 'dark' : 'light'}
               theme={{
                 light: ['#e5e7eb', '#9be9a8', '#40c463', '#30a14e', '#216e39'],

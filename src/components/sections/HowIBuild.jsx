@@ -46,8 +46,8 @@ const HowIBuild = () => {
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-black">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        
-        {/* Header - Stays centered while scrolling horizontally */}
+
+
         <div className="container mx-auto px-6 max-w-7xl mb-12 flex flex-col items-start absolute top-32 left-0 right-0 z-10">
           <div className="flex items-center gap-4 mb-6">
             <span className="text-zinc-500 font-mono text-sm tracking-widest uppercase">Philosophy</span>
@@ -58,11 +58,11 @@ const HowIBuild = () => {
           </h2>
         </div>
 
-        {/* Horizontal Scrolling Cards */}
+
         <motion.div style={{ x }} className="flex gap-8 px-6 md:px-24 w-max mt-24">
           {principles.map((principle) => (
-            <div 
-              key={principle.num} 
+            <div
+              key={principle.num}
               className="w-[300px] md:w-[450px] h-[350px] p-8 md:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md flex flex-col justify-between group cursor-hover transition-colors hover:bg-white/[0.04]"
             >
               <div className="flex justify-between items-start">
@@ -73,7 +73,7 @@ const HowIBuild = () => {
                   <principle.icon className="w-6 h-6" />
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4 tracking-tight uppercase">
                   {principle.title}
@@ -84,13 +84,13 @@ const HowIBuild = () => {
               </div>
             </div>
           ))}
-          {/* Spacer block at the end */}
+
           <div className="w-[10vw]"></div>
         </motion.div>
-        
-        {/* Progress bar at the bottom */}
+
+
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-1 bg-white/10 rounded-full overflow-hidden">
-          <motion.div 
+          <motion.div
             className="h-full bg-white"
             style={{ width: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
           />

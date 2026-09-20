@@ -22,9 +22,9 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
     <div ref={containerRef} className="min-h-screen py-24 flex items-center relative" id={`project-${index}`}>
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Left Content */}
-          <motion.div 
+
+
+          <motion.div
             style={{ opacity }}
             className="flex flex-col relative z-10"
           >
@@ -32,19 +32,19 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
               <span className="text-zinc-500 font-mono text-sm">0{index + 1}</span>
               <div className="w-12 h-[1px] bg-zinc-800"></div>
             </div>
-            
+
             <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
               {project.title.split(' — ')[0]}
             </h3>
-            
+
             <p className="text-xl text-zinc-400 mb-8 max-w-lg leading-relaxed">
               {project.shortDesc}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-10">
               {project.techStack.map((tech) => (
-                <span 
-                  key={tech} 
+                <span
+                  key={tech}
                   className="px-3 py-1.5 text-xs font-mono rounded-full bg-white/5 text-zinc-300 border border-white/10"
                 >
                   {tech}
@@ -53,14 +53,14 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
             </div>
 
             <div className="flex flex-wrap items-center gap-4 mt-10">
-              <Button 
+              <Button
                 onClick={() => { playClick(); setSelectedProject(project); }}
                 onMouseEnter={playHover}
                 className="rounded-full bg-white text-black hover:bg-zinc-200 h-12 px-8 cursor-hover transition-all"
               >
                 Case Study
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 h-12 px-8 cursor-hover"
                 asChild
@@ -70,7 +70,7 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
                 </a>
               </Button>
               {project.live && (
-                <Button 
+                <Button
                   variant="outline"
                   className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 h-12 px-8 cursor-hover"
                   asChild
@@ -83,43 +83,43 @@ const ProjectSection = ({ project, index, setSelectedProject }) => {
             </div>
           </motion.div>
 
-          {/* Right Visualizer */}
-          <motion.div 
+
+          <motion.div
             style={{ y, opacity }}
             className="relative lg:h-[600px] w-full flex items-center justify-center cursor-hover"
           >
-            {/* Visuals vary based on the project */}
+
             {index === 0 && <VMartVisualizer />}
             {index === 1 && <PGSphereVisualizer />}
             {index === 2 && <TalentScopeVisualizer />}
-            
-            {/* Ambient Background Glow */}
+
+
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/5 to-transparent blur-3xl -z-10 rounded-full"></div>
           </motion.div>
-          
+
         </div>
       </div>
     </div>
   );
 };
 
-// Specialized Visualizers
+
 
 const VMartVisualizer = () => {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="w-full max-w-lg aspect-[4/3] rounded-xl border border-white/10 bg-[#0c0c0c] shadow-2xl relative flex flex-col"
     >
-      {/* Browser Bar */}
+
       <div className="h-10 bg-white/5 border-b border-white/5 rounded-t-xl flex items-center px-4 gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
         <div className="mx-auto w-1/2 h-4 bg-white/5 rounded-md"></div>
       </div>
-      {/* Browser Body Mockup */}
+
       <div className="flex-1 p-6 flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <div className="w-24 h-6 bg-white/10 rounded-md"></div>
@@ -135,9 +135,9 @@ const VMartVisualizer = () => {
           ))}
         </div>
       </div>
-      
-      {/* Floating Elements */}
-      <motion.div 
+
+
+      <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -right-6 top-24 p-3 bg-zinc-900 border border-white/10 rounded-lg shadow-xl flex items-center gap-3"
@@ -153,20 +153,20 @@ const VMartVisualizer = () => {
 
 const PGSphereVisualizer = () => {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="w-full max-w-lg aspect-square rounded-full border border-white/5 bg-gradient-to-b from-white/5 to-transparent relative flex items-center justify-center"
     >
       <div className="absolute inset-0 rounded-full border border-white/10 scale-75 border-dashed animate-[spin_60s_linear_infinite]"></div>
-      
-      {/* Core Node */}
+
+
       <div className="w-24 h-24 rounded-full bg-zinc-900 border border-white/20 flex items-center justify-center z-10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
         <Server className="w-8 h-8 text-white" />
       </div>
 
-      {/* Orbiting Nodes */}
-      <motion.div 
+
+      <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         className="absolute w-full h-full"
@@ -184,10 +184,10 @@ const PGSphereVisualizer = () => {
           <Smartphone className="w-5 h-5 text-purple-400" />
         </div>
       </motion.div>
-      
-      {/* Animated Data Packets */}
+
+
       <div className="absolute top-1/2 left-1/2 w-full h-[1px] -translate-x-1/2 -translate-y-1/2">
-        <motion.div 
+        <motion.div
           animate={{ left: ["0%", "50%"], opacity: [0, 1, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "circIn" }}
           className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]"
@@ -199,13 +199,13 @@ const PGSphereVisualizer = () => {
 
 const TalentScopeVisualizer = () => {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="w-full max-w-lg flex flex-col gap-4 relative"
     >
-      {/* Node 1: Resume */}
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         className="self-start p-4 rounded-xl bg-zinc-900 border border-white/10 flex items-center gap-4 shadow-lg z-10 relative"
@@ -219,11 +219,11 @@ const TalentScopeVisualizer = () => {
         </div>
       </motion.div>
 
-      {/* Connecting Line */}
+
       <div className="w-[2px] h-8 bg-gradient-to-b from-white/20 to-transparent ml-12"></div>
 
-      {/* Node 2: AI Evaluation */}
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
@@ -238,11 +238,11 @@ const TalentScopeVisualizer = () => {
         </div>
       </motion.div>
 
-      {/* Connecting Line */}
+
       <div className="w-[2px] h-8 bg-gradient-to-b from-transparent to-white/20 ml-auto mr-12"></div>
 
-      {/* Node 3: Result */}
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4 }}
@@ -264,7 +264,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const { isV4Active } = useV4();
 
-  // Disable scroll when modal is open
+
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
@@ -278,10 +278,10 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative bg-black pt-32">
-      
-      {/* Section Header */}
+
+
       <div className="container mx-auto px-6 max-w-7xl mb-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -298,24 +298,24 @@ const Projects = () => {
         </motion.div>
       </div>
 
-      {/* Project Stack */}
+
       <div className="flex flex-col relative pb-32">
         {projects.map((project, index) => (
           <ProjectSection key={project.id} project={project} index={index} setSelectedProject={setSelectedProject} />
         ))}
       </div>
 
-      {/* Case Study Full Screen Modal / Ecosystem */}
+
       <AnimatePresence>
         {selectedProject && (
           isV4Active ? (
-            <ProjectEcosystem 
+            <ProjectEcosystem
               key="v4-ecosystem"
-              project={selectedProject} 
-              onClose={() => setSelectedProject(null)} 
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
             />
           ) : (
-            <motion.div 
+            <motion.div
               key="v3-modal"
             initial={{ opacity: 0, y: "100%" }}
             animate={{ opacity: 1, y: 0 }}
@@ -324,12 +324,12 @@ const Projects = () => {
             className="fixed inset-0 z-[100] bg-black overflow-y-auto"
           >
             <div className="min-h-screen">
-              {/* Header */}
+
               <div className="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10 px-6 py-4 flex justify-between items-center">
                 <div className="font-mono text-sm text-zinc-400">
                   CASE STUDY: {selectedProject.title.split(' — ')[0].toUpperCase()}
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
                   className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors cursor-hover"
                 >
@@ -338,8 +338,8 @@ const Projects = () => {
               </div>
 
               <div className="container mx-auto max-w-4xl px-6 py-24 flex flex-col gap-16">
-                
-                {/* 01 Overview */}
+
+
                 <div>
                   <h2 className="text-sm font-mono text-zinc-500 mb-4">01 — OVERVIEW</h2>
                   <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
@@ -352,7 +352,7 @@ const Projects = () => {
 
                 <div className="w-full h-[1px] bg-white/10"></div>
 
-                {/* 02 Problem & Solution */}
+
                 <div className="grid md:grid-cols-2 gap-12">
                   <div>
                     <h2 className="text-sm font-mono text-zinc-500 mb-4">02 — PROBLEM</h2>
@@ -370,7 +370,7 @@ const Projects = () => {
 
                 <div className="w-full h-[1px] bg-white/10"></div>
 
-                {/* 04 Architecture & 05 Features */}
+
                 <div className="grid md:grid-cols-2 gap-12">
                   <div>
                     <h2 className="text-sm font-mono text-zinc-500 mb-4">04 — ARCHITECTURE</h2>
@@ -398,7 +398,7 @@ const Projects = () => {
 
                 <div className="w-full h-[1px] bg-white/10"></div>
 
-                {/* 06 Challenges & 07 Learnings */}
+
                 <div>
                   <h2 className="text-sm font-mono text-zinc-500 mb-4">06 — CHALLENGES & LEARNINGS</h2>
                   <div className="p-8 bg-zinc-900 border border-white/10 rounded-2xl flex flex-col gap-6">
@@ -410,8 +410,8 @@ const Projects = () => {
                     </p>
                   </div>
                 </div>
-                
-                {/* 08 Tech Stack & Links */}
+
+
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pt-12 pb-24">
                   <div>
                     <h2 className="text-sm font-mono text-zinc-500 mb-4">08 — TECH STACK</h2>

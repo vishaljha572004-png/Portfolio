@@ -41,8 +41,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 md:py-32 relative bg-black">
       <div className="container mx-auto px-6 max-w-4xl">
-        
-        {/* Header */}
+
+
         <div className="flex flex-col items-center text-center mb-20">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[1px] bg-zinc-800"></div>
@@ -54,14 +54,14 @@ const Experience = () => {
           </h2>
         </div>
 
-        {/* Timeline */}
+
         <div ref={containerRef} className="relative">
-          
-          {/* Background Line */}
+
+
           <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 md:-translate-x-1/2"></div>
-          
-          {/* Animated Line */}
-          <motion.div 
+
+
+          <motion.div
             style={{ height: lineHeight }}
             className="absolute left-[15px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 md:-translate-x-1/2 origin-top"
           ></motion.div>
@@ -71,12 +71,12 @@ const Experience = () => {
               const isEven = index % 2 === 0;
               return (
                 <div key={index} className="relative flex flex-col md:flex-row items-start md:items-center w-full group">
-                  
-                  {/* Timeline Dot */}
+
+
                   <div className="absolute left-[15px] md:left-1/2 w-3 h-3 rounded-full bg-black border-2 border-zinc-600 md:-translate-x-1/2 z-10 group-hover:border-white transition-colors duration-300"></div>
-                  
-                  {/* Content Left (Even) or Right (Odd) */}
-                  <motion.div 
+
+
+                  <motion.div
                     initial={{ opacity: 0, x: isEven ? -20 : 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}

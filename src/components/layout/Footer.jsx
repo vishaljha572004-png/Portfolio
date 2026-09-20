@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="w-full border-t border-white/5 bg-black py-12 md:py-16">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          
-          {/* Left Side */}
+
+
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="font-mono text-xl tracking-widest text-white font-bold mb-1">VISHAL JHA</h2>
@@ -18,29 +18,29 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Right Side - Links */}
+
           <div className="flex flex-col md:items-end gap-6">
             <div className="flex items-center gap-6">
-              <a 
-                href="https://github.com/vishaljha572004-png" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/vishaljha572004-png"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover flex items-center gap-2 text-sm font-medium"
               >
                 <FaGithub className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
-              <a 
-                href="https://www.linkedin.com/in/vishaljha572004" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.linkedin.com/in/vishaljha572004"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover flex items-center gap-2 text-sm font-medium"
               >
                 <FaLinkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
               </a>
-              <a 
-                href="mailto:vishaljha572004@gmail.com" 
+              <a
+                href="mailto:vishaljha572004@gmail.com"
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover flex items-center gap-2 text-sm font-medium"
               >
                 <Mail className="w-4 h-4" />

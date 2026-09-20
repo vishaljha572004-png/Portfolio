@@ -18,7 +18,7 @@ const skills = [
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
-  // Calculate circular positions
+
   const radius = 160;
   const getPosition = (index, total) => {
     const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
@@ -31,8 +31,8 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 md:py-32 relative bg-black overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        
-        {/* Header */}
+
+
         <div className="flex flex-col items-center text-center mb-24">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[1px] bg-zinc-800"></div>
@@ -45,38 +45,38 @@ const Skills = () => {
           <p className="text-zinc-400">Hover over a technology to explore its role in my stack.</p>
         </div>
 
-        {/* Constellation Container */}
+
         <div className="relative h-[500px] w-full max-w-[500px] mx-auto flex items-center justify-center">
-          
-          {/* Central Node */}
+
+
           <div className="absolute z-20 flex flex-col items-center justify-center w-32 h-32 rounded-full bg-zinc-900 border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.05)] backdrop-blur-xl">
             <Boxes className="w-8 h-8 text-white mb-2" />
             <span className="text-xs font-bold tracking-widest text-white">FULL-STACK</span>
           </div>
 
-          {/* Lines and Nodes */}
+
           {skills.map((skill, index) => {
             const pos = getPosition(index, skills.length);
             const isHovered = hoveredSkill === skill.id;
-            
+
             return (
               <div key={skill.id} className={`absolute inset-0 flex items-center justify-center pointer-events-none ${isHovered ? 'z-50' : 'z-10'}`}>
-                
-                {/* Connecting Line */}
+
+
                 <svg className="absolute inset-0 w-full h-full -z-10 overflow-visible pointer-events-none">
-                  <motion.line 
-                    x1="250" 
-                    y1="250" 
-                    x2={250 + pos.x} 
-                    y2={250 + pos.y} 
+                  <motion.line
+                    x1="250"
+                    y1="250"
+                    x2={250 + pos.x}
+                    y2={250 + pos.y}
                     stroke={isHovered ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.05)"}
                     strokeWidth={isHovered ? 2 : 1}
                     className="transition-all duration-300"
                   />
                 </svg>
 
-                {/* Node */}
-                <motion.div 
+
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -88,11 +88,11 @@ const Skills = () => {
                 >
                   <div className={`relative flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-zinc-900 cursor-hover transition-all duration-300 ${isHovered ? 'scale-125 z-30 shadow-xl' : 'scale-100 z-10'}`}>
                     <skill.icon className={`w-6 h-6 ${isHovered ? skill.color : 'text-zinc-500'} transition-colors duration-300`} />
-                    
-                    {/* Tooltip */}
+
+
                     <AnimatePresence>
                       {isHovered && (
-                        <motion.div 
+                        <motion.div
                           initial={{ opacity: 0, y: 10, scale: 0.9 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -105,18 +105,18 @@ const Skills = () => {
                     </AnimatePresence>
                   </div>
                 </motion.div>
-                
+
               </div>
             );
           })}
-          
+
         </div>
       </div>
     </section>
   );
 };
 
-// We need AnimatePresence from framer-motion which was missing in import
+
 import { AnimatePresence } from 'framer-motion';
 
 export default Skills;

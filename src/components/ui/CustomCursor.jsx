@@ -16,14 +16,14 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    // Only show custom cursor on desktop devices (non-touch)
+
     const checkDesktop = () => {
       setIsDesktop(window.matchMedia('(hover: hover) and (pointer: fine)').matches);
     };
-    
+
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
-    
+
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
@@ -35,7 +35,7 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      // Elements that should trigger cursor expansion
+
       const interactable = e.target.closest(
         'a, button, input, textarea, select, [role="button"], .cursor-hover'
       );
@@ -55,7 +55,7 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* The Floating Image Preview */}
+
       <AnimatePresence>
         {previewImg && (
           <motion.div
@@ -87,7 +87,7 @@ const CustomCursor = () => {
           mass: 0.5
         }}
       />
-      {/* Subtle glow trail */}
+
       <motion.div
         className="fixed top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none z-[-1]"
         animate={{

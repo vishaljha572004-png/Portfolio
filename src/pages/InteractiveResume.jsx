@@ -7,8 +7,8 @@ const InteractiveResume = () => {
   return (
     <main className="min-h-screen bg-black pt-32 pb-20 px-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
-        
-        {/* Left Sticky Sidebar (Index & Download) */}
+
+
         <aside className="lg:w-64 shrink-0">
           <div className="sticky top-32">
             <Link to="/" className="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors cursor-hover">
@@ -33,14 +33,14 @@ const InteractiveResume = () => {
           </div>
         </aside>
 
-        {/* Right Content Area (The Resume) */}
+
         <div className="flex-1 bg-zinc-950 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl">
-          
-          {/* Header */}
+
+
           <header className="border-b border-white/10 pb-8 mb-10">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Vishal Jha</h1>
             <h2 className="text-xl text-blue-400 font-medium mb-6">Full Stack Developer</h2>
-            
+
             <div className="flex flex-wrap gap-4 text-sm text-zinc-400 font-mono">
               <span className="flex items-center"><MapPin className="w-4 h-4 mr-1"/> Jaipur, India</span>
               <span className="flex items-center"><Mail className="w-4 h-4 mr-1"/> vishaljha572004@gmail.com</span>
@@ -50,7 +50,7 @@ const InteractiveResume = () => {
             </div>
           </header>
 
-          {/* Summary */}
+
           <section id="summary" className="mb-12 scroll-mt-32">
             <h3 className="text-lg font-mono text-zinc-500 mb-4 tracking-wider uppercase">Summary</h3>
             <p className="text-zinc-300 leading-relaxed text-lg">
@@ -58,7 +58,7 @@ const InteractiveResume = () => {
             </p>
           </section>
 
-          {/* Education */}
+
           <section id="education" className="mb-12 scroll-mt-32">
             <h3 className="text-lg font-mono text-zinc-500 mb-6 tracking-wider uppercase">Education</h3>
             <div className="flex flex-col gap-6">
@@ -73,7 +73,7 @@ const InteractiveResume = () => {
             </div>
           </section>
 
-          {/* Experience */}
+
           <section id="experience" className="mb-12 scroll-mt-32">
             <h3 className="text-lg font-mono text-zinc-500 mb-6 tracking-wider uppercase">Experience</h3>
             <div className="flex flex-col gap-8">
@@ -92,11 +92,11 @@ const InteractiveResume = () => {
             </div>
           </section>
 
-          {/* Projects */}
+
           <section id="projects" className="mb-12 scroll-mt-32">
             <h3 className="text-lg font-mono text-zinc-500 mb-6 tracking-wider uppercase">Key Projects</h3>
             <div className="flex flex-col gap-8">
-              
+
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <h4 className="text-xl font-bold text-white flex items-center gap-2">
@@ -130,7 +130,7 @@ const InteractiveResume = () => {
             </div>
           </section>
 
-          {/* Skills */}
+
           <section id="skills" className="scroll-mt-32">
             <h3 className="text-lg font-mono text-zinc-500 mb-6 tracking-wider uppercase">Technical Skills</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

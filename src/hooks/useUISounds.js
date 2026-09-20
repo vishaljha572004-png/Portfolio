@@ -4,16 +4,16 @@ const useUISounds = () => {
   const audioContext = useRef(null);
 
   useEffect(() => {
-    // Initialize AudioContext on first user interaction to bypass autoplay policies
+
     const initAudio = () => {
       if (!audioContext.current) {
         audioContext.current = new (window.AudioContext || window.webkitAudioContext)();
       }
     };
-    
+
     window.addEventListener('click', initAudio, { once: true });
     window.addEventListener('keydown', initAudio, { once: true });
-    
+
     return () => {
       window.removeEventListener('click', initAudio);
       window.removeEventListener('keydown', initAudio);
@@ -22,7 +22,7 @@ const useUISounds = () => {
 
   const playHover = useCallback(() => {
     if (!audioContext.current) return;
-    
+
     const ctx = audioContext.current;
     if (ctx.state === 'suspended') ctx.resume();
 
@@ -45,7 +45,7 @@ const useUISounds = () => {
 
   const playClick = useCallback(() => {
     if (!audioContext.current) return;
-    
+
     const ctx = audioContext.current;
     if (ctx.state === 'suspended') ctx.resume();
 

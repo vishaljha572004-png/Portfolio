@@ -50,16 +50,16 @@ const SignatureTransformation = () => {
   return (
     <AnimatePresence>
       {!isComplete && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-      transition={{ duration: 1, ease: 'easeInOut' }}
-      className="fixed inset-0 z-[200] bg-black flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Grid */}
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[200] bg-black flex items-center justify-center overflow-hidden"
+        >
+
       <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      
+
       <div className="relative flex flex-col items-center justify-center">
         <AnimatePresence mode="wait">
           {currentStep < sequenceSteps.length - 1 ? (
@@ -100,7 +100,7 @@ const SignatureTransformation = () => {
         </AnimatePresence>
       </div>
 
-      {/* Speed lines effect */}
+
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <motion.div
           animate={{ scale: [1, 2], opacity: [0.5, 0] }}

@@ -11,7 +11,7 @@ const BlogList = () => {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Home
         </Link>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ const BlogList = () => {
 
         <div className="flex flex-col gap-8">
           {blogs.map((blog, index) => (
-            <motion.article 
+            <motion.article
               key={blog.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

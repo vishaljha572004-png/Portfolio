@@ -31,7 +31,7 @@ const Navbar = () => {
       // Determine active section based on scroll position
       const sections = navLinks.map(link => link.href.substring(1));
       let current = '';
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -70,14 +70,14 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 md:px-6">
           <nav className={`mx-auto flex items-center justify-between transition-all duration-300 ${
-            isScrolled 
-              ? 'max-w-4xl bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl px-6 py-3 rounded-full' 
+            isScrolled
+              ? 'max-w-4xl bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl px-6 py-3 rounded-full'
               : 'max-w-6xl'
           }`}>
-            
-            {/* Logo */}
-            <a 
-              href="#" 
+
+
+            <a
+              href="#"
               onClick={(e) => handleNavClick(e, '#')}
               className="font-mono text-sm tracking-widest text-white font-bold cursor-hover relative group"
             >
@@ -85,7 +85,7 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            {/* Desktop Navigation */}
+
             <div className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
@@ -110,7 +110,7 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* Desktop Actions */}
+
             <div className="hidden md:flex items-center space-x-4">
               <button
                 onClick={toggleTheme}
@@ -119,18 +119,18 @@ const Navbar = () => {
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 <span className="sr-only">Toggle theme</span>
               </button>
-              
-              <a 
-                href="https://github.com/vishaljha572004-png" 
-                target="_blank" 
+
+              <a
+                href="https://github.com/vishaljha572004-png"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors cursor-hover p-2"
               >
                 <FaGithub className="w-5 h-5" />
                 <span className="sr-only">GitHub</span>
               </a>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="rounded-full bg-transparent border-white/20 text-white hover:bg-white hover:text-black transition-all cursor-hover"
                 onMouseEnter={playHover}
                 onClick={() => { playClick(); navigate('/resume'); }}
@@ -138,7 +138,7 @@ const Navbar = () => {
                 Resume
               </Button>
               {!isV4Active && (
-                <Button 
+                <Button
                   className="rounded-full bg-blue-600 text-white hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all cursor-hover font-mono text-xs font-bold tracking-wider"
                   onMouseEnter={playHover}
                   onClick={() => { playClick(); startV4Preview(); }}
@@ -148,8 +148,8 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <button 
+
+            <button
               className="md:hidden text-zinc-400 hover:text-white p-2"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -159,7 +159,7 @@ const Navbar = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Full-Screen Menu Overlay */}
+
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -169,7 +169,7 @@ const Navbar = () => {
             transition={{ duration: 0.4 }}
             className="fixed inset-0 z-[100] bg-black/80 flex flex-col justify-center items-center"
           >
-            <button 
+            <button
               className="absolute top-6 right-6 text-zinc-400 hover:text-white p-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -190,7 +190,7 @@ const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -203,16 +203,16 @@ const Navbar = () => {
                 >
                   {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
                 </button>
-                <a 
-                  href="https://github.com/vishaljha572004-png" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/vishaljha572004-png"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-white p-2"
                 >
                   <FaGithub className="w-6 h-6" />
                 </a>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="rounded-full bg-white text-black hover:bg-zinc-200 transition-all border-none"
                   asChild
                 >

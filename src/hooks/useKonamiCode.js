@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 
 const KONAMI_CODE = [
-  'ArrowUp', 'ArrowUp', 
-  'ArrowDown', 'ArrowDown', 
-  'ArrowLeft', 'ArrowRight', 
-  'ArrowLeft', 'ArrowRight', 
+  'ArrowUp', 'ArrowUp',
+  'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight',
+  'ArrowLeft', 'ArrowRight',
   'b', 'a'
 ];
 
@@ -19,12 +19,12 @@ export const useKonamiCode = () => {
         if (newKeys.length > KONAMI_CODE.length) {
           newKeys.shift();
         }
-        
-        // Check if the sequence matches
+
+
         const isMatch = newKeys.every((key, index) => key.toLowerCase() === KONAMI_CODE[index].toLowerCase());
-        
+
         if (isMatch && newKeys.length === KONAMI_CODE.length) {
-          // Trigger Confetti
+
           const duration = 3000;
           const end = Date.now() + duration;
 
@@ -48,13 +48,13 @@ export const useKonamiCode = () => {
               requestAnimationFrame(frame);
             }
           };
-          
+
           frame();
-          
-          // Clear keys after match
+
+
           return [];
         }
-        
+
         return newKeys;
       });
     };

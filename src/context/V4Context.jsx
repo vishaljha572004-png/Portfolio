@@ -5,7 +5,7 @@ const V4Context = createContext();
 export const useV4 = () => useContext(V4Context);
 
 export const V4Provider = ({ children }) => {
-  // state: 'disabled' | 'preview' | 'approved'
+
   const [v4State, setV4State] = useState(() => {
     return localStorage.getItem('portfolio-v4-state') || 'approved';
   });
@@ -31,14 +31,14 @@ export const V4Provider = ({ children }) => {
     }
   }, [isRecruiterMode]);
 
-  // Global Keyboard listener for Debug Mode (Ctrl + Shift + D)
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'd') {
         e.preventDefault();
         setIsDebugMode(prev => !prev);
       }
-      // Escape to exit debug mode if active
+
       if (e.key === 'Escape') {
         setIsDebugMode(false);
       }
@@ -48,11 +48,11 @@ export const V4Provider = ({ children }) => {
   }, []);
 
   const startV4Preview = () => setV4State('preview');
-  
+
   const approveV4 = () => {
     setV4State('approved');
   };
-  
+
   const rejectV4 = () => {
     setV4State('disabled');
   };

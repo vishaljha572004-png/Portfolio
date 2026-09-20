@@ -9,7 +9,7 @@ const DebugOverlay = () => {
 
   useEffect(() => {
     if (!isDebugMode) return;
-    
+
     let frameCount = 0;
     let lastTime = performance.now();
     let animationFrameId;
@@ -37,7 +37,7 @@ const DebugOverlay = () => {
           <span className="font-bold text-green-300">V4 DEBUG MODE</span>
           <span className="text-green-500/50">[ESC to exit]</span>
         </div>
-        
+
         <div className="space-y-1">
           <div className="flex justify-between">
             <span className="text-zinc-400">FPS:</span>

@@ -108,7 +108,7 @@ class TenantRepository {
 \`\`\`
 
 ## Indexing for Performance
-Since millions of rows from different tenants share the same table, querying without proper indexes would lead to full table scans. 
+Since millions of rows from different tenants share the same table, querying without proper indexes would lead to full table scans.
 
 I created composite indexes on \`(tenant_id, id)\` for almost all tables. This ensures the database engine instantly filters down to the specific tenant's data partition before executing the rest of the query.
 

@@ -16,12 +16,12 @@ export function useTheme() {
       root.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
-    
-    // Dispatch a custom event so other components know the theme changed
+
+
     window.dispatchEvent(new Event('themechange'));
   }, [theme]);
 
-  // Also listen for theme changes from other components (like CommandMenu)
+
   useEffect(() => {
     const handleThemeChange = () => {
       const currentTheme = localStorage.getItem('theme') || 'dark';
@@ -29,7 +29,7 @@ export function useTheme() {
         setTheme(currentTheme);
       }
     };
-    
+
     window.addEventListener('themechange', handleThemeChange);
     return () => window.removeEventListener('themechange', handleThemeChange);
   }, [theme]);

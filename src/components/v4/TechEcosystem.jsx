@@ -22,7 +22,7 @@ const TechEcosystem = () => {
 
   if (!isV4Active) return null;
 
-  // Calculate circular positions exactly as they are in V3
+
   const radius = 160;
   const getPosition = (index, total) => {
     const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
@@ -35,9 +35,8 @@ const TechEcosystem = () => {
   return (
     <section id="skills" className="py-24 md:py-32 relative bg-black overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        
-        {/* Header - Using identical header to V3 but slightly changed text to match V4 vibe if needed, 
-            but to be safe I'll use exactly the V3 text to ensure it looks 100% the same to the user. */}
+
+
         <div className="flex flex-col items-center text-center mb-24">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[1px] bg-zinc-800"></div>
@@ -50,38 +49,38 @@ const TechEcosystem = () => {
           <p className="text-zinc-400">Hover over a technology to explore its role in my stack.</p>
         </div>
 
-        {/* Constellation Container */}
+
         <div className="relative h-[500px] w-full max-w-[500px] mx-auto flex items-center justify-center">
-          
-          {/* Central Node */}
+
+
           <div className="absolute z-20 flex flex-col items-center justify-center w-32 h-32 rounded-full bg-zinc-900 border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.05)] backdrop-blur-xl">
             <Boxes className="w-8 h-8 text-white mb-2" />
             <span className="text-xs font-bold tracking-widest text-white">FULL-STACK</span>
           </div>
 
-          {/* Lines and Nodes */}
+
           {skills.map((skill, index) => {
             const pos = getPosition(index, skills.length);
             const isHovered = hoveredSkill === skill.id;
-            
+
             return (
               <div key={skill.id} className={`absolute inset-0 flex items-center justify-center pointer-events-none ${isHovered ? 'z-50' : 'z-10'}`}>
-                
-                {/* Connecting Line */}
+
+
                 <svg className="absolute inset-0 w-full h-full -z-10 overflow-visible pointer-events-none">
-                  <motion.line 
-                    x1="250" 
-                    y1="250" 
-                    x2={250 + pos.x} 
-                    y2={250 + pos.y} 
+                  <motion.line
+                    x1="250"
+                    y1="250"
+                    x2={250 + pos.x}
+                    y2={250 + pos.y}
                     stroke={isHovered ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.05)"}
                     strokeWidth={isHovered ? 2 : 1}
                     className="transition-all duration-300"
                   />
                 </svg>
 
-                {/* Node */}
-                <motion.div 
+
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -91,14 +90,14 @@ const TechEcosystem = () => {
                   onMouseEnter={() => setHoveredSkill(skill.id)}
                   onMouseLeave={() => setHoveredSkill(null)}
                 >
-                  {/* Exactly the same classNames and styling as V3 */}
+
                   <div className={`relative flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-zinc-900 cursor-hover transition-all duration-300 ${isHovered ? 'scale-125 z-30 shadow-xl' : 'scale-100 z-10'}`}>
                     <skill.icon className={`w-6 h-6 ${isHovered ? skill.color : 'text-zinc-500'} transition-colors duration-300`} />
-                    
-                    {/* Tooltip with V4 additions */}
+
+
                     <AnimatePresence>
                       {isHovered && (
-                        <motion.div 
+                        <motion.div
                           initial={{ opacity: 0, y: 10, scale: 0.9 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -106,8 +105,8 @@ const TechEcosystem = () => {
                         >
                           <div className={`text-sm font-bold mb-1 ${skill.color}`}>{skill.name}</div>
                           <div className="text-xs text-zinc-400 leading-relaxed mb-3">{skill.desc}</div>
-                          
-                          {/* V4 specific data */}
+
+
                           <div className="pt-2 border-t border-white/10">
                             <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Where I Used It:</div>
                             <ul className="flex flex-col gap-1">
@@ -124,11 +123,11 @@ const TechEcosystem = () => {
                     </AnimatePresence>
                   </div>
                 </motion.div>
-                
+
               </div>
             );
           })}
-          
+
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ function App() {
     window.addEventListener('keydown', handleGlobalKeydown);
     return () => window.removeEventListener('keydown', handleGlobalKeydown);
   }, []);
-  
+
   return (
     <V4Provider>
       <div className="noise-bg"></div>

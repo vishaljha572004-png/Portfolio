@@ -19,7 +19,7 @@ const BlogPost = () => {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Blogs
         </Link>
-        
+
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

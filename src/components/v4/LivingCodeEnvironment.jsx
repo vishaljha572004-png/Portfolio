@@ -37,11 +37,11 @@ const LivingCodeEnvironment = () => {
       return;
     }
 
-    // Generate initial logs
+
     const initialLogs = Array.from({ length: 8 }).map((_, i) => generateFloatingLog(i));
     setActiveLogs(initialLogs);
 
-    // Periodically replace a log to keep the environment feeling alive
+
     const interval = setInterval(() => {
       setActiveLogs(prev => {
         const newLogs = [...prev];
@@ -63,13 +63,13 @@ const LivingCodeEnvironment = () => {
           <motion.div
             key={log.id}
             initial={{ opacity: 0, y: `${log.y + 10}vh`, x: `${log.x}vw` }}
-            animate={{ 
-              opacity: [0, 1, 1, 0], 
+            animate={{
+              opacity: [0, 1, 1, 0],
               y: `${log.y - 20}vh`,
             }}
             exit={{ opacity: 0 }}
-            transition={{ 
-              duration: log.duration, 
+            transition={{
+              duration: log.duration,
               ease: "linear",
               times: [0, 0.1, 0.9, 1],
               delay: log.delay

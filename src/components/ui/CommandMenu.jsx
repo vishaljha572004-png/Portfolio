@@ -3,14 +3,14 @@ import { Command } from 'cmdk';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/hooks/useTheme';
-import { 
-  FileText, 
-  Terminal, 
-  User, 
-  Code, 
-  Mail, 
-  Moon, 
-  Sun, 
+import {
+  FileText,
+  Terminal,
+  User,
+  Code,
+  Mail,
+  Moon,
+  Sun,
   Cpu
 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -22,7 +22,7 @@ export function CommandMenu() {
   const { theme, toggleTheme } = useTheme();
   const { playHover, playClick } = useUISounds();
 
-  // Toggle the menu when ⌘K is pressed
+
   useEffect(() => {
     const down = (e) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -56,8 +56,8 @@ export function CommandMenu() {
             <Command className="w-full bg-transparent flex flex-col h-[400px]">
               <div className="border-b border-white/10 flex items-center px-4">
                 <Terminal className="w-5 h-5 text-zinc-500 mr-2" />
-                <Command.Input 
-                  placeholder="Type a command or search..." 
+                <Command.Input
+                  placeholder="Type a command or search..."
                   className="w-full bg-transparent text-white outline-none py-4 text-base placeholder:text-zinc-500"
                   autoFocus
                 />
@@ -69,21 +69,21 @@ export function CommandMenu() {
                 </Command.Empty>
 
                 <Command.Group heading="Navigation" className="text-xs font-medium text-zinc-500 px-2 py-2">
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => navigate('/'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
                   >
                     <User className="w-4 h-4" /> Home
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => navigate('/resume'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
                   >
                     <FileText className="w-4 h-4" /> Interactive Resume
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => navigate('/blog'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
@@ -93,7 +93,7 @@ export function CommandMenu() {
                 </Command.Group>
 
                 <Command.Group heading="Projects" className="text-xs font-medium text-zinc-500 px-2 py-2 mt-2 border-t border-white/5">
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('https://pg-management-system-84bq.vercel.app/', '_blank'))}
                     onMouseEnter={(e) => {
                       playHover();
@@ -107,7 +107,7 @@ export function CommandMenu() {
                     </div>
                     <span className="text-xs text-zinc-600 group-hover:text-zinc-400">View live</span>
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('https://v-mart-theta.vercel.app/', '_blank'))}
                     onMouseEnter={(e) => {
                       playHover();
@@ -121,7 +121,7 @@ export function CommandMenu() {
                     </div>
                     <span className="text-xs text-zinc-600 group-hover:text-zinc-400">View live</span>
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('https://talentscope-client.onrender.com/', '_blank'))}
                     onMouseEnter={(e) => {
                       playHover();
@@ -138,7 +138,7 @@ export function CommandMenu() {
                 </Command.Group>
 
                 <Command.Group heading="Actions" className="text-xs font-medium text-zinc-500 px-2 py-2 mt-2 border-t border-white/5">
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => {
                       const element = document.getElementById('projects');
                       if (element) {
@@ -152,32 +152,32 @@ export function CommandMenu() {
                   >
                     <Code className="w-4 h-4" /> View Projects
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(toggleTheme)}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
                   >
-                    {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />} 
+                    {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                     Toggle Theme
                   </Command.Item>
                 </Command.Group>
 
                 <Command.Group heading="Social" className="text-xs font-medium text-zinc-500 px-2 py-2 mt-2 border-t border-white/5">
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('https://github.com/vishaljha572004-png', '_blank'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
                   >
                     <FaGithub className="w-4 h-4" /> GitHub
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('https://www.linkedin.com/in/vishaljha572004', '_blank'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
                   >
                     <FaLinkedin className="w-4 h-4" /> LinkedIn
                   </Command.Item>
-                  <Command.Item 
+                  <Command.Item
                     onSelect={() => runCommand(() => window.open('mailto:vishaljha572004@gmail.com'))}
                     onMouseEnter={playHover}
                     className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"

@@ -63,7 +63,7 @@ export function CommandMenu() {
                 />
               </div>
 
-              <Command.List className="overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+              <Command.List className="flex-1 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                 <Command.Empty className="py-6 text-center text-zinc-500 text-sm">
                   No results found.
                 </Command.Empty>
@@ -72,21 +72,21 @@ export function CommandMenu() {
                   <Command.Item
                     onSelect={() => runCommand(() => navigate('/'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <User className="w-4 h-4" /> Home
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(() => navigate('/resume'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <FileText className="w-4 h-4" /> Interactive Resume
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(() => navigate('/blog'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <Cpu className="w-4 h-4" /> Technical Blog
                   </Command.Item>
@@ -100,7 +100,7 @@ export function CommandMenu() {
                       window.dispatchEvent(new CustomEvent('cursor-preview', { detail: '/images/projects/pg-sphere.png' }));
                     }}
                     onMouseLeave={() => window.dispatchEvent(new CustomEvent('cursor-preview', { detail: null }))}
-                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10 group"
+                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10 group"
                   >
                     <div className="flex items-center gap-2">
                       <Code className="w-4 h-4" /> PGSphere
@@ -114,7 +114,7 @@ export function CommandMenu() {
                       window.dispatchEvent(new CustomEvent('cursor-preview', { detail: '/images/projects/v-mart.png' }));
                     }}
                     onMouseLeave={() => window.dispatchEvent(new CustomEvent('cursor-preview', { detail: null }))}
-                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10 group"
+                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10 group"
                   >
                     <div className="flex items-center gap-2">
                       <Code className="w-4 h-4" /> V-Mart
@@ -128,7 +128,7 @@ export function CommandMenu() {
                       window.dispatchEvent(new CustomEvent('cursor-preview', { detail: '/images/projects/talent-scope.png' }));
                     }}
                     onMouseLeave={() => window.dispatchEvent(new CustomEvent('cursor-preview', { detail: null }))}
-                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10 group"
+                    className="flex items-center justify-between px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10 group"
                   >
                     <div className="flex items-center gap-2">
                       <Code className="w-4 h-4" /> TalentScope
@@ -148,14 +148,14 @@ export function CommandMenu() {
                       }
                     })}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <Code className="w-4 h-4" /> View Projects
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(toggleTheme)}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                     Toggle Theme
@@ -166,21 +166,21 @@ export function CommandMenu() {
                   <Command.Item
                     onSelect={() => runCommand(() => window.open('https://github.com/vishaljha572004-png', '_blank'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <FaGithub className="w-4 h-4" /> GitHub
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(() => window.open('https://www.linkedin.com/in/vishaljha572004', '_blank'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <FaLinkedin className="w-4 h-4" /> LinkedIn
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(() => window.open('mailto:vishaljha572004@gmail.com'))}
                     onMouseEnter={playHover}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 aria-selected:bg-white/10"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-300 rounded-md cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10"
                   >
                     <Mail className="w-4 h-4" /> Email Me
                   </Command.Item>

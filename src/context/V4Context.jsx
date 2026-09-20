@@ -7,7 +7,7 @@ export const useV4 = () => useContext(V4Context);
 export const V4Provider = ({ children }) => {
   // state: 'disabled' | 'preview' | 'approved'
   const [v4State, setV4State] = useState(() => {
-    return localStorage.getItem('portfolio-v4-state') || 'disabled';
+    return localStorage.getItem('portfolio-v4-state') || 'approved';
   });
 
   const [isDebugMode, setIsDebugMode] = useState(false);
